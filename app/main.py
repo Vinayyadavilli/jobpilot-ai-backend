@@ -3,6 +3,7 @@ from app.core.config import settings
 from app.api.v1.auth import router as auth_router
 from app.api.v1.jobs import router as jobs_router
 from app.api.v1.interviews import router as interviews_router
+from app.api.v1.notes import router as notes_router
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -13,7 +14,7 @@ app = FastAPI(
 app.include_router(auth_router, prefix="/api/v1")
 app.include_router(jobs_router, prefix="/api/v1")
 app.include_router(interviews_router, prefix="/api/v1")
-
+app.include_router(notes_router, prefix="/api/v1")
 
 
 @app.get("/")
