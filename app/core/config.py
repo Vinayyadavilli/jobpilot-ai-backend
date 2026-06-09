@@ -39,6 +39,11 @@ class Settings(BaseSettings):
     # Must match the URL scheme registered in your iOS app's Info.plist
     APP_DEEP_LINK_SCHEME: str = "jobpilot"
 
+    # ─── Universal AI Integration ─────────────────────────────────────────────
+    AI_PROVIDER_API_KEY: str = ""
+    AI_PROVIDER_API_BASE: str = "https://api.openai.com/v1"
+    AI_PROVIDER_MODEL: str = "gpt-4o"
+
     class Config:
         env_file = ".env"
 
