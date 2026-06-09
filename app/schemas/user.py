@@ -6,6 +6,7 @@ class UserResponse(BaseModel):
     id: str
     name: str
     email: EmailStr
+    is_email_verified: bool
     created_at: datetime
     updated_at: datetime
 

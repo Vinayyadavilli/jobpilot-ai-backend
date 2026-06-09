@@ -21,6 +21,13 @@ class UserRepository:
             .first()
         )
 
+    def get_by_verification_token(self, token: str) -> User | None:
+        return (
+            self.db.query(User)
+            .filter(User.email_verification_token == token)
+            .first()
+        )
+
     def get_by_reset_token(self, token: str) -> User | None:
         return (
             self.db.query(User)
