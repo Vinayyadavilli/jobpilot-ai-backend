@@ -14,6 +14,7 @@ from app.models.user import User
 
 from app.dependencies.database import get_db
 from app.dependencies.auth import get_current_user
+from app.models.user import User
 from app.repositories.job_repository import JobRepository
 from app.services.job_service import JobService
 

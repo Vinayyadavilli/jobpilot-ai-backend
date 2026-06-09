@@ -1,4 +1,4 @@
-from sqlalchemy import String, DateTime
+from sqlalchemy import String, DateTime, Boolean
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from typing import Optional
@@ -27,6 +27,26 @@ class User(BaseModel):
         nullable=False
     )
 
+    # ─── Email Verification ───────────────────────────────────────────────────
+    is_email_verified: Mapped[bool] = mapped_column(
+        Boolean,
+        nullable=False,
+        default=False
+    )
+
+    email_verification_token: Mapped[Optional[str]] = mapped_column(
+        String(255),
+        nullable=True,
+        default=None
+    )
+
+    email_verification_expires: Mapped[Optional[DateTime]] = mapped_column(
+        DateTime,
+        nullable=True,
+        default=None
+    )
+
+    # ─── Password Reset ───────────────────────────────────────────────────────
     password_reset_token: Mapped[Optional[str]] = mapped_column(
         String(255),
         nullable=True,
