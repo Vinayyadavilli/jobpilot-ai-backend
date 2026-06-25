@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     # ─── JWT ──────────────────────────────────────────────────────────────────
     SECRET_KEY: str = "your-super-secret-key-change-in-production"
     ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7 # 7 days
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     PASSWORD_RESET_TOKEN_EXPIRE_MINUTES: int = 15
     EMAIL_VERIFICATION_EXPIRE_MINUTES: int = 60
@@ -38,6 +38,11 @@ class Settings(BaseSettings):
     # ─── iOS Deep Link Scheme ─────────────────────────────────────────────────
     # Must match the URL scheme registered in your iOS app's Info.plist
     APP_DEEP_LINK_SCHEME: str = "jobpilot"
+
+    # ─── Universal AI Integration ─────────────────────────────────────────────
+    AI_PROVIDER_API_KEY: str = ""
+    AI_PROVIDER_API_BASE: str = "https://api.openai.com/v1"
+    AI_PROVIDER_MODEL: str = "gpt-4o"
 
     class Config:
         env_file = ".env"
