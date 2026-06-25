@@ -23,4 +23,4 @@ app.include_router(resumes_router, prefix="/api/v1")
 
 @app.get("/")
 def root():
-    return {"message": "JobPilot API is running  like a 🚀"}
+    return {"message": "JobPilot API is running  and completed ci/cd integration testing also 🚀"}
